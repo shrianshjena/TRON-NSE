@@ -1,0 +1,37 @@
+export const CATEGORY_WEIGHTS = {
+  VALUATION: 0.30,
+  GROWTH: 0.25,
+  PROFITABILITY: 0.20,
+  TECHNICAL: 0.15,
+  SENTIMENT: 0.10,
+} as const;
+
+export const VALUATION_WEIGHTS = {
+  PE_VS_SECTOR: 0.35,
+  PB_RATIO: 0.25,
+  EV_EBITDA: 0.20,
+  DIVIDEND_YIELD: 0.20,
+} as const;
+
+export const GROWTH_WEIGHTS = {
+  REVENUE_GROWTH_YOY: 0.35,
+  EPS_GROWTH_YOY: 0.35,
+  PROFIT_GROWTH_YOY: 0.30,
+} as const;
+
+export const PROFITABILITY_WEIGHTS = {
+  ROE: 0.35,
+  OPERATING_MARGIN: 0.35,
+  DEBT_EQUITY: 0.30,
+} as const;
+
+export const TECHNICAL_WEIGHTS = {
+  PRICE_52W_POSITION: 0.40,
+  RSI_14: 0.30,
+  PRICE_VS_200DMA: 0.30,
+} as const;
+
+export const SENTIMENT_WEIGHTS = {
+  ANALYST_CONSENSUS: 0.50,
+  NEWS_SENTIMENT: 0.50,
+} as const;

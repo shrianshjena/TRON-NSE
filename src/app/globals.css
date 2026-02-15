@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tron-orange: #FF6A00;
+  --tron-orange-dim: #CC5500;
+  --tron-orange-light: #FF8C42;
+  --tron-orange-glow: rgba(255, 106, 0, 0.6);
+  --tron-bg-primary: #0a0a0f;
+  --tron-bg-secondary: #111118;
+  --tron-bg-card: #16161f;
+  --tron-border: rgba(255, 106, 0, 0.15);
+  --tron-border-strong: rgba(255, 106, 0, 0.4);
+  --tron-text-primary: #e8e8ef;
+  --tron-text-secondary: #8888a0;
+  --tron-green: #00E676;
+  --tron-red: #FF1744;
+  --tron-cyan: #00E5FF;
+  --tron-glow: 0 0 10px rgba(255, 106, 0, 0.3), 0 0 20px rgba(255, 106, 0, 0.15), 0 0 40px rgba(255, 106, 0, 0.05);
+  --tron-glow-strong: 0 0 10px rgba(255, 106, 0, 0.5), 0 0 30px rgba(255, 106, 0, 0.3), 0 0 60px rgba(255, 106, 0, 0.1);
+  --tron-text-glow: 0 0 8px rgba(255, 106, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--tron-text-primary);
+  background: var(--tron-bg-primary);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tron-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 106, 0, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 106, 0, 0.5);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(255, 106, 0, 0.3);
+  color: #ffffff;
+}
+
+@layer utilities {
+  /* Glow utilities */
+  .glow-border {
+    box-shadow: var(--tron-glow);
+    border: 1px solid var(--tron-border);
+  }
+
+  .glow-border-strong {
+    box-shadow: var(--tron-glow-strong);
+    border: 1px solid var(--tron-border-strong);
+  }
+
+  .glow-text {
+    text-shadow: var(--tron-text-glow);
+    color: var(--tron-orange);
+  }
+
+  .glow-text-green {
+    text-shadow: 0 0 8px rgba(0, 230, 118, 0.6);
+    color: var(--tron-green);
+  }
+
+  .glow-text-red {
+    text-shadow: 0 0 8px rgba(255, 23, 68, 0.6);
+    color: var(--tron-red);
+  }
+
+  /* Perspective grid background */
+  .grid-perspective {
+    background-image:
+      linear-gradient(rgba(255, 106, 0, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 106, 0, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Card hover glow effect */
+  .hover-glow {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--tron-glow-strong);
+    transform: translateY(-2px);
+  }
+
+  /* Neon underline for active tabs */
+  .neon-underline {
+    position: relative;
+  }
+
+  .neon-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--tron-orange);
+    box-shadow: 0 0 8px var(--tron-orange-glow), 0 0 16px rgba(255, 106, 0, 0.3);
+    border-radius: 1px;
+  }
+
+  /* Heading glow underline */
+  .heading-glow-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .heading-glow-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--tron-orange), transparent);
+    box-shadow: 0 0 10px var(--tron-orange-glow);
+  }
+}
+
+/* Lightweight Charts overrides */
+.tv-lightweight-charts {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Recharts overrides for TRON theme */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255, 106, 0, 0.08);
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--tron-bg-card) !important;
+  border: 1px solid var(--tron-border) !important;
+  border-radius: 8px !important;
+  box-shadow: var(--tron-glow) !important;
+}
+
+/* Input autofill override */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--tron-text-primary);
+  -webkit-box-shadow: 0 0 0px 1000px var(--tron-bg-card) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
